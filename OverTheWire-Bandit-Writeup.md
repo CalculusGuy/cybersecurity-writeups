@@ -156,4 +156,89 @@ readable by that level's user. Careful password copying is
 critical — hidden spaces or newlines cause login failures.
 Always verify your copy before attempting SSH login.
 
+## Level 15 → 16
+**Goal:** Submit the current level's password to port 30001 
+on localhost using SSL/TLS encryption
+**Command:**
+openssl s_client -connect localhost:30001
+# Then paste the bandit15 password when connected
+
+**What I learned:**
+openssl s_client is used to connect to SSL/TLS encrypted ports.
+After the handshake completes and you see "read R BLOCK", 
+the server is waiting for input. Regular nc won't work here 
+because the port requires encrypted communication.
+
 ---
+
+## Level 16 → 17
+**Goal:** Find which port in range 31000-32000 speaks SSL 
+and gives credentials instead of echoing back
+**Commands:**
+nmap -p 31000-32000 localhost
+# Found open ports: 31046, 31518, 31691, 31790, 31960
+nmap -p 31046,31518,31691,31790,31960 --script ssl-enum-ciphers localhost
+# Found SSL ports: 31518, 31691, 31790
+openssl s_client -connect localhost:31790 -ign_eof
+# Pasted bandit16 password → received RSA private key
+
+mkdir /tmp/mykey
+nano /tmp/mykey/sshkey.private
+# Pasted the RSA private key
+chmod 600 /tmp/mykey/sshkey.private
+ssh -i /tmp/mykey/sshkey.private -p 2220 bandit17@bandit.labs.overthewire.org
+
+**What I learned:**
+- nmap can scan port ranges and detect SSL with --script ssl-enum-ciphers
+- Some ports echo back (useless), only one gives real credentials
+- The -ign_eof flag prevents OpenSSL from closing on KEYUPDATE messages
+- Sometimes the server returns an SSH private key instead of a password
+- Private key files must be chmod 600 or SSH refuses to use them
+- /tmp directories get wiped periodically — use long names
+
+---
+
+## Level 17 → 18
+**Goal:** Two files exist — passwords.old and passwords.new. 
+Find the one changed line in passwords.new
+**Command:**
+diff passwords.old passwords.new
+# Line marked with > is the new bandit18 password
+
+**What I learned:**
+diff compares two files line by line.
+< means the line exists in the first file (old)
+> means the line exists in the second file (new)
+This is the changed line — which is the password.
+
+---
+
+## Level 18 → 19
+**Goal:** .bashrc kicks you out with "Byebye!" immediately on login
+**Command:**
+ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat ~/readme"
+
+**What I learned:**
+You can pass a command directly to SSH without opening an 
+interactive shell. This bypasses .bashrc entirely because 
+the command runs before the shell fully initializes.
+The readme file contained the bandit19 password.
+
+---
+
+## Level 19 → 20
+**Goal:** Use the setuid binary in the home directory to 
+read the next password
+**Commands:**
+./bandit20-do
+# Shows usage instructions
+./bandit20-do cat /etc/bandit_pass/bandit20
+
+**What I learned:**
+Setuid binaries run as their owner (bandit20) regardless 
+of who executes them. This means we can read files owned 
+by bandit20 even though we are logged in as bandit19.
+This is a classic privilege escalation concept in Linux.
+
+---
+
