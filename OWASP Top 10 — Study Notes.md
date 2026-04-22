@@ -133,5 +133,5 @@ records from AWS metadata server.
 ---
 
 ## Key Takeaway
-6 out of 10 OWASP vulnerabilities covered through real 
+6 out of 10 OWASP vulnerabilities covered through real !
 hands-on labs and real world OSINT findings — not just theory.
