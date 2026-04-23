@@ -17,6 +17,22 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 
 ---
 
+## ⭐ Featured Work
+
+- 🔐 **SQL Injection Labs (PortSwigger)**  
+  Hands-on exploitation of authentication bypass and data extraction vulnerabilities.
+
+- 🧠 **picoCTF Crypto Challenges**  
+  Solved RSA (small exponent, multi-prime) and LFSR-based encryption challenges.
+
+- 🛠️ **Custom Port Scanner (Python)**  
+  Built a basic TCP port scanner to understand networking and service enumeration.
+
+- 🌐 **OSINT Google Dorking**  
+  Discovered real-world misconfigurations exposing sensitive files.
+
+---
+
 ## Repository Structure
 
 | Folder/File | Description |
