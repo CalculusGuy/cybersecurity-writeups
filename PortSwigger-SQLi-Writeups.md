@@ -36,8 +36,6 @@ Example backend query:
 ```sql
 SELECT * FROM users WHERE username = 'input' AND password = 'input';
 
-SELECT * FROM users WHERE username = 'input' AND password = 'input';
-
 If an attacker inputs:
 
 ' OR 1=1--
@@ -48,9 +46,9 @@ SELECT * FROM users WHERE username = '' OR 1=1--' AND password = '';
 OR 1=1 always evaluates to TRUE
 -- comments out the rest of the query
 
-This allows the attacker to bypass authentication and gain unauthorized access.```
+This allows the attacker to bypass authentication and gain unauthorized access.    
 
-🛡️ How to Prevent It
+ How to Prevent It
 Use Prepared Statements (Parameterized Queries)
 → Ensures input is treated as data, not code
 Avoid building queries using string concatenation
@@ -73,15 +71,8 @@ After:
   - Backend understanding ✅  
   - Attacker mindset ✅  
   - Defense awareness ✅  
-
-👉 This is exactly what recruiters want.
-
----
-
-# ⚡ Commit message
-
-```bash
-Enhance SQL Injection writeup with deep explanation and prevention
-
+```md
+## 🧠 Real-World Impact
+SQL Injection can lead to full database compromise, data leakage, and in some cases remote code execution depending on database permissions.
 
 
