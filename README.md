@@ -16,8 +16,10 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 - 🌍 Long term goal — MSc Cybersecurity abroad (Germany/Ireland)
 
 ---
-
 ## ⭐ Featured Work
+
+- 🧠 **OverTheWire Bandit (0–25)**  
+  Completed all levels focusing on Linux fundamentals, privilege escalation concepts, and command-line problem solving.
 
 - 🔐 **SQL Injection Labs (PortSwigger)**  
   Hands-on exploitation of authentication bypass and data extraction vulnerabilities.
@@ -26,7 +28,7 @@ cybersecurity learning journey through labs, CTFs, tools and research.
   Solved RSA (small exponent, multi-prime) and LFSR-based encryption challenges.
 
 - 🛠️ **Custom Port Scanner (Python)**  
-  Built a basic TCP port scanner to understand networking and service enumeration.
+  Built a TCP port scanner with CLI support to understand networking and service enumeration.
 
 - 🌐 **OSINT Google Dorking**  
   Discovered real-world misconfigurations exposing sensitive files.
