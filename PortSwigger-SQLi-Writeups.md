@@ -24,3 +24,64 @@
 **Payload:** `' UNION SELECT NULL,NULL,NULL--`
 **Result:** 3 columns returned by original query
 **What I learned:** UNION requires matching column counts — use NULL (compatible with any type) and increment until page loads without error
+
+---
+
+## 🔍 Why This Vulnerability Exists
+
+SQL Injection occurs when user-controlled input is directly inserted into a SQL query without proper validation or parameterization.
+
+Example backend query:
+
+```sql
+SELECT * FROM users WHERE username = 'input' AND password = 'input';
+
+SELECT * FROM users WHERE username = 'input' AND password = 'input';
+
+If an attacker inputs:
+
+' OR 1=1--
+
+The query becomes:
+
+SELECT * FROM users WHERE username = '' OR 1=1--' AND password = '';
+OR 1=1 always evaluates to TRUE
+-- comments out the rest of the query
+
+This allows the attacker to bypass authentication and gain unauthorized access.```
+
+🛡️ How to Prevent It
+Use Prepared Statements (Parameterized Queries)
+→ Ensures input is treated as data, not code
+Avoid building queries using string concatenation
+Use ORM frameworks (e.g., Django ORM, SQLAlchemy)
+Apply input validation (but NOT as the only defense)
+📌 Key Takeaway
+
+SQL Injection is not just about payloads — it’s about understanding how user input interacts with backend database queries.
+
+
+---
+
+# 🧠 What this upgrade does
+
+Before:
+- “Used payload X”
+
+After:
+- Shows:
+  - Backend understanding ✅  
+  - Attacker mindset ✅  
+  - Defense awareness ✅  
+
+👉 This is exactly what recruiters want.
+
+---
+
+# ⚡ Commit message
+
+```bash
+Enhance SQL Injection writeup with deep explanation and prevention
+
+
+
