@@ -1,6 +1,12 @@
 # Nilanjan Chowdhury — Cybersecurity Writeups
 
 > "With great power comes great responsibility." 🕷️
+> 
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=CalculusGuy&show_icons=true&theme=dark)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=CalculusGuy&layout=compact&theme=dark)
+
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=CalculusGuy.CalculusGuy)
 
 Hi, I'm Nilanjan — a 1st year BCA Cybersecurity student at RCC Institute 
 of Information Technology, Kolkata. This repository documents my hands-on 
