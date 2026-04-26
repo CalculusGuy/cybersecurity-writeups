@@ -308,3 +308,181 @@ through a single netcat connection at once. grep -v "Wrong" filtered
 out all failed attempts, leaving only the success line with the password.
 Efficient brute forcing — one connection, 10000 payloads.
 
+## Level 25 → 26
+**Goal:** Login to bandit26 whose shell is not /bin/bash
+**Commands:**
+ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220
+# Terminal window must be made VERY small first!
+# When "more" pauses — press v to open vim
+# Inside vim:
+:set shell=/bin/bash
+:shell
+
+**What I learned:**
+Bandit26's shell was set to a custom script using "more" 
+to display text and exit. By making the terminal tiny, 
+"more" paused instead of closing. Pressing v opened vim, 
+which I used to set the shell to /bin/bash and escape. 
+This is a real technique used to escape restricted shells 
+in CTFs and pentests.
+
+---
+
+## Level 26 → 27
+**Goal:** Use setuid binary to read bandit27 password
+**Commands:**
+ls
+./bandit27-do cat /etc/bandit_pass/bandit27
+
+**What I learned:**
+Same setuid binary concept as Level 19. The binary ran 
+as bandit27 giving access to files only bandit27 could read.
+Classic privilege escalation via misconfigured setuid binary.
+
+---
+
+## Level 27 → 28
+**Goal:** Clone a git repository and find the password
+**Commands:**
+mkdir /tmp/nilugit27
+cd /tmp/nilugit27
+git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
+cd repo
+cat README
+
+**What I learned:**
+First git level. The password was stored directly in the 
+README file of the repository. Introduced git clone over SSH 
+with a custom port — a common real world scenario.
+
+---
+
+## Level 28 → 29
+**Goal:** Find password hidden in git commit history
+**Commands:**
+git clone ssh://bandit28-git@bandit.labs.overthewire.org:2220/home/bandit28-git/repo
+cd repo
+cat README.md
+# Password was redacted — "xxxxxxxxxx"
+git log
+# Found commit: "fix info leak"
+git show a3437bddd447f2d496731658e86b98cbea9d3c98
+
+**What I learned:**
+The developer had committed the real password then removed 
+it in a later commit called "fix info leak". But git history 
+is permanent — git show revealed the password from the older 
+commit. This is exactly how bug bounty hunters find leaked 
+API keys and credentials in public repositories. Git never 
+truly forgets.
+
+---
+
+## Level 29 → 30
+**Goal:** Find password hidden in a git branch
+**Commands:**
+git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo
+cd repo
+cat README.md
+# Says "no passwords in production!"
+git branch -a
+# Found: remotes/origin/dev, remotes/origin/sploits-dev
+git checkout origin/dev
+cat README.md
+
+**What I learned:**
+The password was hidden in the dev branch — developers 
+often leave credentials in non-production branches thinking 
+only the master branch matters. Always check ALL branches 
+during git recon. Real pentest technique used to find 
+staging credentials and internal API keys.
+
+---
+
+## Level 30 → 31
+**Goal:** Find password hidden in git tags
+**Commands:**
+git clone ssh://bandit30-git@bandit.labs.overthewire.org:2220/home/bandit30-git/repo
+cd repo
+git log
+# Nothing useful
+git branch -a
+# Nothing useful
+git tag
+# Found: secret
+git show secret
+
+**What I learned:**
+Neither commits nor branches had the password — it was 
+stored in a git tag called "secret". Tags are meant for 
+version releases but are sometimes misused to store sensitive 
+data. Complete git recon checklist:
+- git log — commit history
+- git branch -a — all branches  
+- git tag — all tags
+- git show <ref> — inspect any reference
+
+---
+
+## Level 31 → 32
+**Goal:** Push a specific file to the repository
+**Commands:**
+git clone ssh://bandit31-git@bandit.labs.overthewire.org:2220/home/bandit31-git/repo
+cd repo
+cat README.md
+# Required: create key.txt with content "May I come in?"
+echo "May I come in?" > key.txt
+cat .gitignore
+# Found: *.txt — blocking our file!
+rm .gitignore
+git config --global user.email "nilanjanchowdhury965@gmail.com"
+git config --global user.name "Nilanjan"
+git add key.txt
+git commit -m "Add key.txt"
+git push origin master
+# Server returned the bandit32 password!
+
+**What I learned:**
+First level requiring a git push instead of just reading. 
+The .gitignore was blocking txt files — removing it allowed 
+the push. The server validated the file content and returned 
+the next password. Taught git push workflow and .gitignore 
+manipulation.
+
+---
+
+## Level 32 → 33
+**Goal:** Escape the UPPERCASE SHELL
+**Commands:**
+# Everything typed gets converted to uppercase
+# Regular commands like "ls" become "LS" and fail
+$0
+# This escapes the uppercase shell!
+cat /etc/bandit_pass/bandit33
+
+**What I learned:**
+The shell converted all input to uppercase making normal 
+commands useless. $0 refers to the current shell process 
+itself — typing it spawned a fresh normal shell bypassing 
+the uppercase filter. Classic restricted shell escape 
+technique used in real CTFs and pentests.
+
+---
+
+## Level 33 — COMPLETED ✅
+**Bandit fully completed — all 33 levels done!**
+**Date completed: April 2026**
+
+Key skills mastered across all levels:
+- Linux file system navigation and permissions
+- SSH key authentication and tunneling
+- SSL/TLS connections with OpenSSL
+- Network port scanning and service detection
+- Netcat for networking and brute forcing
+- Cron job enumeration and abuse
+- Setuid binary privilege escalation
+- Git forensics — history, branches, tags
+- Restricted shell escape techniques
+- Vim escape and shell spawning
+
+- 
