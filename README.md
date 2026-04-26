@@ -24,8 +24,9 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 ---
 ## ⭐ Featured Work
 
-- 🧠 **OverTheWire Bandit (0–25)**  
-  Completed Level 0–25 with focus on Linux, file permissions, networking, and basic exploitation techniques.
+- 🧠 **OverTheWire Bandit (0-33) ALL COMPLETED**  
+  Completed all 33 levels including git forensics, 
+  restricted shell escapes and vim-based privilege escalation.
 
 - 🔐 **SQL Injection Labs (PortSwigger)**  
   Hands-on exploitation of authentication bypass and data extraction vulnerabilities.
