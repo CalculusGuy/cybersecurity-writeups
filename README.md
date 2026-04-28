@@ -16,6 +16,7 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 
 ## About Me
 - 🎓 BCA Cybersecurity @ RCC Institute of Information Technology
+- ✅ Verified CyberSecurity Writeups (Hands-on Exploits & Prevention) - Medium
 - 🏆 1st Rank — College CTF Competition
 - ✅ HackerDNA Verified | Deloitte Forage ⭐ | IBM Certified ⭐
 - 🎯 Targeting Bangalore Cybersecurity Internship — 2027
@@ -39,6 +40,8 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 
 - 🌐 **OSINT Google Dorking**  
   Discovered real-world misconfigurations exposing sensitive files.
+- 🌍 **Medium Writeups**
+  Published Writeups on my exploits, discovered vulnerabilities and their prevention on SQL Injection.
 
 ---
 
