@@ -50,7 +50,7 @@ Logged in as administrator → Lab Solved ✅
 - Rate limit cookie-based requests to prevent automated extraction'''
 #HERE IS THE SCRIPT#
 
-import urllib3
+'''import urllib3
 urllib3.disable_warnings()
 import requests
 import string
@@ -99,3 +99,4 @@ for position in range(1, 21):
 
 print(f"\n[*] Attack complete!")
 print(f"[*] Administrator password: {password}")
+'''
