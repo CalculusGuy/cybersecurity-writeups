@@ -32,6 +32,11 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 - 🔐 **SQL Injection Labs (PortSwigger)**  
   Hands-on exploitation of authentication bypass and data extraction vulnerabilities.
 
+-💉 **XSS Labs (PortSwigger)**  
+  Solved all Apprentice XSS labs + first Practitioner in one session. 
+  Reflected, Stored, DOM, attribute escape, JS string injection via Burp Suite.
+  [Medium Article](https://medium.com/@nilanjan.calculus/from-prompt-injection-to-xss-my-first-night-attacking-ai-and-web-systems-8255a6ecc45f)
+
 - 🧠 **picoCTF Crypto Challenges**  
   Solved RSA (small exponent, multi-prime) and LFSR-based encryption challenges.
 
@@ -53,6 +58,7 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 | `PortSwigger-PathTraversal-Writeup.md` | Path Traversal labs |
 | `PortSwigger-AccessControl-Writeups.md` | Access Control labs |
 | `PortSwigger-SQLi-Writeups.md` | SQL Injection labs |
+| `PortSwigger/XSS/xss-writeup.md` | XSS labs — Apprentice to Practitioner |
 | `OSINT-GoogleDorking-Writeup.md` | Google Dorking findings |
 | `OWASP Top 10 — Study Notes.md` | OWASP Top 10 with real examples |
 | `picoCTF/` | picoCTF challenge writeups |
@@ -64,7 +70,8 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 
 ## Skills & Tools
 `Kali Linux` `Burp Suite` `Nmap` `Wireshark` `Python`
-`OpenSSL` `Netcat` `Shodan` `Google Dorking` `SQL Injection`
+`OpenSSL` `Netcat` `Shodan` `Google Dorking` `SQL Injection` 
+`XSS` `Prompt Injection`
 
 ---
 
