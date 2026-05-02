@@ -32,7 +32,7 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 - 🔐 **SQL Injection Labs (PortSwigger)**  
   Hands-on exploitation of authentication bypass and data extraction vulnerabilities.
 
--💉 **XSS Labs (PortSwigger)**  
+- 💉 **XSS Labs (PortSwigger)**  
   Solved all Apprentice XSS labs + first Practitioner in one session. 
   Reflected, Stored, DOM, attribute escape, JS string injection via Burp Suite.
   [Medium Article](https://medium.com/@nilanjan.calculus/from-prompt-injection-to-xss-my-first-night-attacking-ai-and-web-systems-8255a6ecc45f)
