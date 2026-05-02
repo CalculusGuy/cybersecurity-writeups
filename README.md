@@ -87,4 +87,4 @@ cybersecurity learning journey through labs, CTFs, tools and research.
 ## Connect
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/nilanjan-chowdhury-a36787359/)
 [![GitHub](https://img.shields.io/badge/GitHub-black?style=flat&logo=github)](https://github.com/CalculusGuy)
-[![Medium](https://medium.com/@nilanjan.calculus)
+[![Medium](https://img.shields.io/badge/Medium-black?style=flat&logo=medium)](https://medium.com/@nilanjan.calculus)
