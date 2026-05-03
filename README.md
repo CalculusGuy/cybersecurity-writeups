@@ -36,6 +36,10 @@ cybersecurity learning journey through labs, CTFs, tools and research.
   Solved all Apprentice XSS labs + first Practitioner in one session. 
   Reflected, Stored, DOM, attribute escape, JS string injection via Burp Suite.
   [Medium Article](https://medium.com/@nilanjan.calculus/from-prompt-injection-to-xss-my-first-night-attacking-ai-and-web-systems-8255a6ecc45f)
+  
+- 🤖 **AI vs Cybersecurity Student — Prompt Injection Writeup**  
+  Cracked all 7 levels of Gandalf by Lakera AI. Top 8% of players worldwide.  
+  [Read on Medium →](https://medium.com/@nilanjan.calculus/ai-vs-cybersecurity-student-how-i-cracked-all-7-levels-of-gandalf-using-prompt-injection-a20a4c8fafa1)
 
 - 🧠 **picoCTF Crypto Challenges**  
   Solved RSA (small exponent, multi-prime) and LFSR-based encryption challenges.
