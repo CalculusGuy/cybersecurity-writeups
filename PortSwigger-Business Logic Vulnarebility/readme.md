@@ -6,18 +6,17 @@ Each writeup follows the format: **Goal → Steps/Payloads → What I Learned** 
 
 ---
 
-## Labs Solved
-
-| # | Lab | Difficulty | Status |
-|---|-----|------------|--------|
-| 01 | Excessive trust in client-side controls | Apprentice | ✅ Solved |
-| 02 | High-level logic vulnerability | Apprentice | ✅ Solved |
-| 03 | Inconsistent security controls | Apprentice | ✅ Solved |
-| 04 | Flawed enforcement of business rules | Apprentice | ✅ Solved |
-| 05 | Inconsistent handling of exceptional input | Practitioner | ✅ Solved |
-| 06 | Weak isolation on dual-use endpoint | Practitioner | ✅ Solved |
-| 07 | Insufficient workflow validation | Practitioner | ✅ Solved |
-| 08 | Authentication bypass via flawed state machine | Practitioner | ✅ Solved |
+| Category | Status |
+|----------|--------|
+| Path Traversal | ✅ Complete |
+| Access Control | ✅ Complete |
+| Authentication | ✅ Complete |
+| SQL Injection + Blind SQLi | ✅ Complete |
+| XSS — Apprentice + Practitioner | ✅ Complete |
+| CSRF — All Practitioner (11 labs) | ✅ Complete |
+| SSRF — Including open redirect chain | ✅ Complete |
+| XXE — Including Expert level | ✅ Complete |
+| Business Logic — 9 labs (4 Apprentice + 4 Practitioner + 1 Expert) | ✅ Complete |
 
 ---
 
