@@ -47,7 +47,7 @@ Hi, I'm Nilanjan — a 1st year BCA Cybersecurity student at RCC Institute of In
 | CSRF — All Practitioner (11 labs) | ✅ Complete |
 | SSRF — Including open redirect chain | ✅ Complete |
 | XXE — Including Expert level | ✅ Complete |
-| Business Logic — 8 labs (4 Apprentice + 4 Practitioner) | ✅ Complete |
+| Business Logic — 9 labs (4 Apprentice + 4 Practitioner + 1 Expert) | ✅ Complete |
 
 ---
 
