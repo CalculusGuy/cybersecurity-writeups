@@ -8,9 +8,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Level | 5 |
+| Level | 7 |
 | Rank | Beginner |
-| XP | 23/257 |
+
 
 ---
 
