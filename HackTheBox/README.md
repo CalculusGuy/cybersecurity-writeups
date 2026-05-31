@@ -21,6 +21,7 @@
 | Intro To Academy | Fundamental | ✅ Completed |
 | Learning Process | Fundamental | ✅ Completed |
 | Web Requests | Fundamental | ✅ Completed |
+| File Transfers | Medium | ✅ Completed |
 
 ---
 
@@ -28,3 +29,4 @@
 
 - 🚀 Started HackTheBox Academy — May 2026
 - ⚡ Web Requests module completed in ~35 minutes
+- ⚡ File Trasfer module completed in ~60 minutes
