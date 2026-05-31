@@ -1,18 +1,10 @@
-# HackTheBox Progress
-
-**Profile:** [@NiluHacks4Fun](https://app.hackthebox.com)
-
----
-
 ## Current Stats
 
 | Metric | Value |
 |--------|-------|
-| Level | 7 |
+| Username | @NiluHacks4Fun |
+| Level | 9 |
 | Rank | Beginner |
-
-
----
 
 ## Completed Modules
 
@@ -23,10 +15,10 @@
 | Web Requests | Fundamental | ✅ Completed |
 | File Transfers | Medium | ✅ Completed |
 
----
+## Starting Point Machines
 
-## Milestones
-
-- 🚀 Started HackTheBox Academy — May 2026
-- ⚡ Web Requests module completed in ~35 minutes
-- ⚡ File Trasfer module completed in ~60 minutes
+| Machine | Tier | Technique | Status |
+|---------|------|-----------|--------|
+| Meow | Tier 0 | Telnet Misconfiguration | ✅ Pwned |
+| Fawn | Tier 0 | FTP Anonymous Login | ✅ Pwned |
+| Dancing | Tier 0 | SMB Misconfiguration | ✅ Pwned |
