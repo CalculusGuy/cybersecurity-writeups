@@ -19,7 +19,7 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | 🏆 | TryHackMe [HACKER] Rank \| Top 7% Globally \| Platinum League \| 46 Rooms \| 7 Badges |
 | 🥇 | Techtrix '26 Inter-College CTF — Top 10 Solo (1521 pts) out of 54 teams |
 | 🔐 | PortSwigger Web Security Academy — Full Curriculum Complete including Expert Labs |
-| 🤖 | HTB Academy — Web Requests, Learning Process completed |
+| 🤖 | HTB Academy — Web Requests, Learning Process completed, File Transfer completed |
 | ✍️ | 9 Medium articles on web security, OSINT, CTFs and incident response |
 | 🌐 | Real-world security assessment — institutional network vulnerability disclosure |
 | 🔍 | Incident Response — traced LinkedIn account hijacking to attacker location |
@@ -83,13 +83,14 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | Metric | Value |
 |--------|-------|
 | Username | @NiluHacks4Fun |
-| Level | 5 |
+| Level | 7 |
 | Rank | Beginner |
 
 **Completed Modules:**
 - ✅ Intro To Academy
 - ✅ Learning Process
 - ✅ Web Requests
+- ✅ File Trasfer 
 
 ---
 
