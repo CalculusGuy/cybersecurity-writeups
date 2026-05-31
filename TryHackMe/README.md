@@ -58,7 +58,7 @@ Rooms documented progressively. Key completions include:
 
 ## Milestones
 
-- 🏆 Reached [HACKER] rank
+- 🏆 Reached [MAGE] rank
 - 🥇 Platinum League #1 this week
-- 🌍 Top 7% globally
+- 🌍 Top 6% globally
 - 💯 100% True Positive Rate across 36 SOC alerts
