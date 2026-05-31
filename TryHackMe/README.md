@@ -8,11 +8,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Rank | [0x8][HACKER] |
-| Global Standing | Top 7% Worldwide |
-| Points | 5583+ |
-| Completed Rooms | 46 |
-| Badges Earned | 7 |
+| Rank | [0x9][MAGE] |
+| Global Standing | Top 6% Worldwide |
+| Points | 8767+ |
+| Completed Rooms | 50 |
+| Badges Earned | 8 |
 | League | Platinum League |
 
 ---
@@ -21,6 +21,7 @@
 
 | Badge | Rarity | Description |
 |-------|--------|-------------|
+| 🔴 Session Held | Rare 1.9% | Completing 4 weekly missions in a row! |
 | 🔴 First Alert Closed | Rare 6.8% | Closed first SOC alert |
 | 🔴 First Scenario Completed | Rare 5.4% | Completed first SOC scenario |
 | 🔴 OhSINT | Rare 5.1% | Completed OhSINT OSINT challenge |
@@ -31,7 +32,7 @@
 
 ---
 
-## Completed Rooms (46)
+## Completed Rooms (50)
 
 Rooms documented progressively. Key completions include:
 
