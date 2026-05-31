@@ -83,14 +83,21 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | Metric | Value |
 |--------|-------|
 | Username | @NiluHacks4Fun |
-| Level | 7 |
+| Level | 9 |
 | Rank | Beginner |
 
 **Completed Modules:**
 - ✅ Intro To Academy
 - ✅ Learning Process
 - ✅ Web Requests
-- ✅ File Trasfer 
+- ✅ File Trasfer
+
+**Starting Point Machines:**
+| Machine | Tier | Technique | Status |
+|---------|------|-----------|--------|
+| Meow | Tier 0 | Telnet Misconfiguration | ✅ Pwned |
+| Fawn | Tier 0 | FTP Anonymous Login | ✅ Pwned |
+| Dancing | Tier 0 | SMB Misconfiguration | ✅ Pwned |
 
 ---
 
