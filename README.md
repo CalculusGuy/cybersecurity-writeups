@@ -68,7 +68,7 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | League | Platinum League |
 | Points | 8767+ |
 | Completed Rooms | 50 |
-| Badges | 7 (4 Rare) |
+| Badges | 8 (5 Rare) |
 
 **Rare Badges:**
 - 🔴 First Alert Closed — Rare 6.8%
