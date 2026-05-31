@@ -66,7 +66,7 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | Rank | [0x9][MAGE] |
 | Global Standing | Top 6% Worldwide |
 | League | Platinum League |
-| Points | 5583+ |
+| Points | 8767+ |
 | Completed Rooms | 50 |
 | Badges | 7 (4 Rare) |
 
