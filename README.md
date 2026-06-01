@@ -75,6 +75,7 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 - 🔴 First Scenario Completed — Rare 5.4%
 - 🔴 OhSINT — Rare 5.1%
 - 🔴 100% True Positive Rate — Rare 4.4%
+
 **Epic Badges:**
 - 🔴Platinum League 1st place — Epic 0.9%
 - 🔴Completing AoC Side Quest 2024! — Epic 0.3%
