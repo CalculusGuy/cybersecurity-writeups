@@ -9,11 +9,11 @@
 | Metric | Value |
 |--------|-------|
 | Rank | [0x9][MAGE] |
-| Global Standing | Top 6% Worldwide |
-| Points | 8767+ |
-| Completed Rooms | 50 |
-| Badges Earned | 8 |
-| League | Platinum League |
+| Global Standing | Top 5% Worldwide |
+| Points | 9765+ |
+| Completed Rooms | 55+ |
+| Badges Earned | 11 |
+| League | Sapphire League |
 
 ---
 
@@ -21,6 +21,8 @@
 
 | Badge | Rarity | Description |
 |-------|--------|-------------|
+| 🔴 Defrosted Five | Epic 0.3% | Completing AoC Side Quest 2024! |
+| 🔴Platinum League | Epic 0.9% | Platinum League 1st place |
 | 🔴 Session Held | Rare 1.9% | Completing 4 weekly missions in a row! |
 | 🔴 First Alert Closed | Rare 6.8% | Closed first SOC alert |
 | 🔴 First Scenario Completed | Rare 5.4% | Completed first SOC scenario |
@@ -32,10 +34,13 @@
 
 ---
 
-## Completed Rooms (50)
+## Completed Rooms (55)
 
 Rooms documented progressively. Key completions include:
 
+- Squid Game
+- Hacking Hadoop
+- Advent of Cyber '24 Side Quest
 - OhSINT — OSINT challenge
 - Basic Malware RE — Malware reverse engineering
 - Sudo Security Bypass — CVE-2019-14287
@@ -59,6 +64,6 @@ Rooms documented progressively. Key completions include:
 ## Milestones
 
 - 🏆 Reached [MAGE] rank
-- 🥇 Platinum League #1 this week
-- 🌍 Top 6% globally
+- 🥇 Platinum League #1 
+- 🌍 Top 5% globally
 - 💯 100% True Positive Rate across 36 SOC alerts
