@@ -16,7 +16,7 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | | |
 |--|--|
 | 🎓 | BCA Cybersecurity @ RCCIIT Kolkata |
-| 🏆 | TryHackMe [MAGE] Rank \| Top 6% Globally \| Platinum League \| 46 Rooms \| 7 Badges |
+| 🏆 | TryHackMe [MAGE] Rank \| Top 5% Globally \| Sapphire League \| 55+ Rooms \| 11+ Badges |
 | 🥇 | Techtrix '26 Inter-College CTF — Top 10 Solo (1521 pts) out of 54 teams |
 | 🔐 | PortSwigger Web Security Academy — Full Curriculum Complete including Expert Labs |
 | 🤖 | HTB Academy — Web Requests, Learning Process completed, File Transfer completed |
@@ -64,17 +64,20 @@ cybersecurity journey through labs, CTFs, real-world research and tools.
 | Metric | Value |
 |--------|-------|
 | Rank | [0x9][MAGE] |
-| Global Standing | Top 6% Worldwide |
-| League | Platinum League |
-| Points | 8767+ |
-| Completed Rooms | 50 |
-| Badges | 8 (5 Rare) |
+| Global Standing | Top 5% Worldwide |
+| League | Sapphire League |
+| Points | 9765+ |
+| Completed Rooms | 55+ |
+| Badges | 11 (6 Rare) (2 Epic) |
 
 **Rare Badges:**
 - 🔴 First Alert Closed — Rare 6.8%
 - 🔴 First Scenario Completed — Rare 5.4%
 - 🔴 OhSINT — Rare 5.1%
 - 🔴 100% True Positive Rate — Rare 4.4%
+**Epic Badges:**
+- 🔴Platinum League 1st place — Epic 0.9%
+- 🔴Completing AoC Side Quest 2024! — Epic 0.3%
 
 ---
 
