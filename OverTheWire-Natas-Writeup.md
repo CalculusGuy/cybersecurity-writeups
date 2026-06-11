@@ -4,6 +4,31 @@
 **Category:** Web Security
 **Date:** June 2026
 
+README: 
+## OverTheWire — Natas Progress
+
+**Category:** Web Security
+**Levels Complete:** 0 → 12
+
+| Level | Vulnerability | Key Technique |
+|-------|--------------|---------------|
+| 0 → 1 | Information Disclosure | Page source review |
+| 1 → 2 | Client-Side Restriction Bypass | DevTools |
+| 2 → 3 | Directory Enumeration | Hidden /files/ directory |
+| 3 → 4 | Sensitive Path Exposure | robots.txt enumeration |
+| 4 → 5 | HTTP Header Manipulation | Referer spoofing |
+| 5 → 6 | Cookie Manipulation | loggedin=0 → 1 |
+| 6 → 7 | Source Code Review | Included file exposure |
+| 7 → 8 | Local File Inclusion (LFI) | Path traversal via parameter |
+| 8 → 9 | Encoding Reversal | bin2hex + strrev + base64 |
+| 9 → 10 | OS Command Injection | Shell metacharacters |
+| 10 → 11 | Argument Injection | Blacklist bypass via grep args |
+| 11 → 12 | XOR Cookie Forgery | Key recovery + cookie tampering |
+| 12 → 13 | File Upload Exploitation | Hidden field manipulation + PHP shell |
+
+**Biggest Lesson:** Every level was solved because the application
+trusted something it should not have trusted.
+
 ---
 
 ## Level 0 → 1
