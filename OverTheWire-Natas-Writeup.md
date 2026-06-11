@@ -1,367 +1,238 @@
-Natas 0 → 1
-Goal
+OverTheWire Natas Writeup
 
-Find the password for the next level.
+Platform: OverTheWire
+Category: Web Security
+Date: June 2026
 
-Steps
+Level 0 → 1
 
-Viewed page source:
+Goal: Find the password for the next level
 
-<!-- password hidden here -->
+Work:
 
-Found the password inside an HTML comment.
+Viewed page source
+Found password hidden inside an HTML comment
 
-What I learned
-HTML comments are visible to anyone.
-"Hidden" source code is not secure.
-Always inspect page source before doing anything complicated.
-Real-world takeaway
+What I Learned:
 
-Developers sometimes leave secrets, API keys, or debug notes in comments.
+HTML comments are visible to everyone
+Hidden source code is not security
+Level 1 → 2
 
-Natas 1 → 2
-Goal
+Goal: Find the next password
 
-Find the next password.
+Work:
 
-Steps
+Right-click was disabled
+Used View Source / Developer Tools
+Located the password in page source
 
-Right-click was disabled.
+What I Learned:
 
-Used:
+Client-side restrictions can always be bypassed
+Browser controls are not security controls
+Level 2 → 3
 
-Ctrl + U
+Goal: Find the next password
 
-or Developer Tools.
+Work:
 
-Viewed the source and found the password.
+Inspected page source
+Found reference to /files/
+Visited the directory directly
+Located file containing the password
 
-What I learned
-JavaScript restrictions only affect honest users.
-Browser controls can always be bypassed.
-Real-world takeaway
+What I Learned:
 
-Client-side controls are never security controls.
+Directory listing can expose sensitive files
+Source code often reveals hidden resources
+Level 3 → 4
 
-Natas 2 → 3
-Goal
+Goal: Find the next password
 
-Find the next password.
+Work:
 
-Steps
+Checked /robots.txt
+Found hidden directory /s3cr3t/
+Browsed to the directory
+Retrieved password
 
-Viewed page source.
+What I Learned:
 
-Found:
+robots.txt is public
+Hidden paths are not protected paths
+Level 4 → 5
 
-<img src="files/pixel.png">
+Goal: Access the protected page
 
-Visited:
+Work:
 
-/files/
+Observed Referer-based access control
+Modified HTTP Referer header
+Reloaded request
+Received password
 
-Directory listing was enabled.
+What I Learned:
 
-Found a file containing the password.
+HTTP headers are client-controlled
+Referer should never be trusted for authorization
+Level 5 → 6
 
-What I learned
-Web servers sometimes expose entire directories.
-Source code often reveals hidden paths.
-Real-world takeaway
+Goal: Become logged in
 
-Directory enumeration is one of the first things attackers perform.
+Work:
 
-Natas 3 → 4
-Goal
+Inspected browser cookies
+Found loggedin=0
+Changed value to loggedin=1
+Refreshed page
 
-Find the next password.
+What I Learned:
 
-Steps
+Cookies can be modified by users
+Authorization must be enforced server-side
+Level 6 → 7
 
-Checked:
+Goal: Discover the secret value
 
-/robots.txt
+Work:
 
-Found:
+Viewed application source code
+Found included file secret.inc
+Accessed file directly
+Retrieved secret and submitted it
 
-Disallow: /s3cr3t/
+What I Learned:
 
-Visited:
+Source code review is powerful
+Included files may leak sensitive information
+Level 7 → 8
 
-/s3cr3t/
+Goal: Find the next password
 
-Found the password.
+Work:
 
-What I learned
-robots.txt is public.
-It often leaks sensitive directories.
-Real-world takeaway
+Observed page parameter usage
+Tested file inclusion behavior
+Accessed sensitive local file
+Retrieved next password
 
-Search engine instructions should never contain sensitive paths.
+Vulnerability: Local File Inclusion (LFI)
 
-Natas 4 → 5
-Goal
+What I Learned:
 
-Access the protected page.
+User-controlled file paths are dangerous
+LFI can expose credentials and source code
+Level 8 → 9
 
-Steps
+Goal: Recover the secret
 
-Page checked the HTTP Referer header.
+Work:
 
-Intercepted request using DevTools.
+Reviewed source code
+Identified multiple encoding transformations
+Reversed each step
+Recovered original secret
 
-Modified:
+What I Learned:
 
-Referer: expected-page
+Encoding is not encryption
+Obfuscation is not security
+Level 9 → 10
 
-Server accepted the request and displayed the password.
+Goal: Retrieve the next password
 
-What I learned
-Referer headers are fully controlled by users.
-HTTP headers should never be trusted.
-Real-world takeaway
+Work:
 
-Many older applications rely on spoofable headers for access control.
+Reviewed source code
+Identified unsanitized user input in shell command
+Manipulated command execution
+Retrieved password
 
-Natas 5 → 6
-Goal
+Vulnerability: Command Injection
 
-Become logged in.
+What I Learned:
 
-Steps
+User input inside shell commands is extremely dangerous
+Command Injection can lead to full system compromise
+Level 10 → 11
 
-Checked browser cookies.
+Goal: Bypass filtering
 
-Found:
+Work:
 
-loggedin=0
+Analyzed blacklist restrictions
+Manipulated application behavior without blocked characters
+Retrieved password
 
-Changed it to:
+Vulnerability: Argument Injection
 
-loggedin=1
+What I Learned:
 
-Refreshed page.
+Blacklists are unreliable
+Input validation must be designed properly
+Level 11 → 12
 
-Password appeared.
+Goal: Display the password
 
-What I learned
-Cookies are client-side data.
-Users can modify them freely.
-Real-world takeaway
+Work:
 
-Authorization must always be enforced on the server.
+Analyzed encrypted cookie structure
+Recovered XOR key
+Modified cookie contents
+Generated valid forged cookie
 
-Natas 6 → 7
-Goal
+Vulnerability: XOR Cookie Forgery
 
-Find the secret value.
+What I Learned:
 
-Steps
+Encryption without integrity protection is weak
+Client-side trust is dangerous
+Level 12 → 13
 
-Viewed source code.
+Goal: Upload executable code
 
-Found:
+Work:
 
-include "includes/secret.inc";
+Analyzed upload functionality
+Modified hidden filename parameter
+Uploaded PHP payload
+Executed uploaded file
+Retrieved password
 
-Opened:
+Vulnerability: Unrestricted File Upload
 
-/includes/secret.inc
+What I Learned:
 
-Recovered the secret.
+Hidden form fields are user-controlled
+File uploads require strict server-side validation
+Key Skills Gained
+Source Code Review
+Directory Enumeration
+Cookie Manipulation
+HTTP Request Tampering
+Local File Inclusion (LFI)
+Command Injection
+Argument Injection
+XOR Cryptanalysis
+Cookie Forgery
+File Upload Exploitation
+Web Application Testing
+Biggest Lesson From Natas 0–12
 
-Submitted it to obtain the password.
+Every level was solved because the application trusted something it shouldn't have:
 
-What I learned
-Source code disclosure is dangerous.
-Included files may be directly accessible.
-Real-world takeaway
-
-Never store secrets inside publicly reachable files.
-
-Natas 7 → 8
-Goal
-
-Find the next password.
-
-Steps
-
-Observed:
-
-?page=home
-
-Modified parameter to read local files.
-
-Used Local File Inclusion to access:
-
-/etc/natas_webpass/natas8
-
-Retrieved the password.
-
-What I learned
-File inclusion functions are dangerous.
-User-controlled paths create severe risks.
-Real-world takeaway
-
-LFI vulnerabilities can expose configuration files, credentials, and source code.
-
-Natas 8 → 9
-Goal
-
-Recover the secret.
-
-Steps
-
-Source code showed:
-
-bin2hex(strrev(base64_encode($secret)))
-
-Reversed the operations:
-
-Hex decode
-Reverse string
-Base64 decode
-
-Recovered the original secret.
-
-What I learned
-Encoding is reversible.
-Obfuscation is not encryption.
-Real-world takeaway
-
-Sensitive data must be encrypted, not merely encoded.
-
-Natas 9 → 10
-Goal
-
-Retrieve the next password.
-
-Steps
-
-Source code contained:
-
-passthru("grep -i $key dictionary.txt");
-
-Injected additional shell syntax.
-
-Application executed unintended commands.
-
-Used this to read:
-
-/etc/natas_webpass/natas10
-What I learned
-User input inside shell commands is extremely dangerous.
-Command injection leads directly to server compromise.
-Real-world takeaway
-
-One command injection vulnerability can become full Remote Code Execution.
-
-Natas 10 → 11
-Goal
-
-Bypass command filtering.
-
-Steps
-
-Characters like:
-
-; | &
-
-were blocked.
-
-Instead of executing another command, manipulated grep arguments.
-
-Used argument injection to access sensitive data.
-
-Retrieved the password.
-
-What I learned
-Blacklists fail.
-Applications must validate inputs properly.
-Real-world takeaway
-
-Attackers often bypass filters without needing blocked characters.
-
-Natas 11 → 12
-Goal
-
-Enable password display.
-
-Steps
-
-Cookie contained:
-
-{
-  "showpassword":"no",
-  "bgcolor":"#ffffff"
-}
-
-Cookie was XOR-encrypted.
-
-Recovered XOR key.
-
-Changed:
-
-"showpassword":"yes"
-
-Re-encrypted cookie.
-
-Loaded modified cookie.
-
-Password appeared.
-
-What I learned
-Encryption without integrity checks is insecure.
-XOR is weak when implemented incorrectly.
-Real-world takeaway
-
-Authenticated encryption is essential when storing client-side data.
-
-Natas 12 → 13
-Goal
-
-Upload executable code.
-
-Steps
-
-Application accepted uploads but trusted:
-
-$_POST["filename"]
-
-Used DevTools to modify:
-
-random.jpg
-
-to:
-
-shell.php
-
-Uploaded PHP payload.
-
-Executed uploaded file.
-
-Read:
-
-/etc/natas_webpass/natas13
-What I learned
-Hidden form fields are user-controlled.
-File uploads require strict validation.
-Real-world takeaway
-
-Unrestricted file upload vulnerabilities frequently lead to Remote Code Execution.
-
-Natas Progress
-Level	Vulnerability
-0	Source Disclosure
-1	Client-side Restriction Bypass
-2	Directory Enumeration
-3	robots.txt Information Disclosure
-4	Referer Spoofing
-5	Cookie Manipulation
-6	Source Code Disclosure
-7	Local File Inclusion
-8	Encoding Reversal
-9	Command Injection
-10	Argument Injection
-11	XOR Cookie Forgery
-12	Unrestricted File Upload
+Level	Trusted Thing
+0	Hidden HTML
+1	Browser Restrictions
+2	Hidden Directory
+3	robots.txt
+4	Referer Header
+5	Cookie
+6	Source File
+7	URL Parameter
+8	Encoded Secret
+9	User Input
+10	Blacklist Filter
+11	Client Cookie
+12	Hidden Form Field
