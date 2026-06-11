@@ -4,30 +4,33 @@
 **Category:** Web Security
 **Date:** June 2026
 
-README: 
 ## OverTheWire — Natas Progress
 
 **Category:** Web Security
-**Levels Complete:** 0 → 12
+**Levels Complete:** 0 → 16
+**Current Level:** Natas17
 
-| Level | Vulnerability | Key Technique |
-|-------|--------------|---------------|
-| 0 → 1 | Information Disclosure | Page source review |
-| 1 → 2 | Client-Side Restriction Bypass | DevTools |
-| 2 → 3 | Directory Enumeration | Hidden /files/ directory |
-| 3 → 4 | Sensitive Path Exposure | robots.txt enumeration |
-| 4 → 5 | HTTP Header Manipulation | Referer spoofing |
-| 5 → 6 | Cookie Manipulation | loggedin=0 → 1 |
-| 6 → 7 | Source Code Review | Included file exposure |
-| 7 → 8 | Local File Inclusion (LFI) | Path traversal via parameter |
-| 8 → 9 | Encoding Reversal | bin2hex + strrev + base64 |
-| 9 → 10 | OS Command Injection | Shell metacharacters |
-| 10 → 11 | Argument Injection | Blacklist bypass via grep args |
-| 11 → 12 | XOR Cookie Forgery | Key recovery + cookie tampering |
-| 12 → 13 | File Upload Exploitation | Hidden field manipulation + PHP shell |
+| Level   | Vulnerability                  | Key Technique                         |
+| ------- | ------------------------------ | ------------------------------------- |
+| 0 → 1   | Information Disclosure         | Page source review                    |
+| 1 → 2   | Client-Side Restriction Bypass | Developer Tools                       |
+| 2 → 3   | Directory Enumeration          | Hidden `/files/` directory            |
+| 3 → 4   | Sensitive Path Exposure        | `robots.txt` enumeration              |
+| 4 → 5   | HTTP Header Manipulation       | Referer spoofing                      |
+| 5 → 6   | Cookie Manipulation            | `loggedin=0 → 1`                      |
+| 6 → 7   | Source Code Review             | Included file disclosure              |
+| 7 → 8   | Local File Inclusion (LFI)     | Path traversal                        |
+| 8 → 9   | Encoding Reversal              | Base64 + String Reversal + Hex        |
+| 9 → 10  | OS Command Injection           | Shell metacharacters                  |
+| 10 → 11 | Argument Injection             | Blacklist bypass                      |
+| 11 → 12 | XOR Cookie Forgery             | Key recovery + cookie tampering       |
+| 12 → 13 | File Upload Exploitation       | Hidden field manipulation + PHP shell |
+| 13 → 14 | File Upload Bypass + RCE       | JPEG-PHP polyglot + command execution |
+| 14 → 15 | SQL Injection                  | Authentication bypass                 |
+| 15 → 16 | Blind SQL Injection            | Boolean-based password extraction     |
+| 16 → 17 | Blind Command Injection        | Automated password enumeration        |
 
-**Biggest Lesson:** Every level was solved because the application
-trusted something it should not have trusted.
+**Biggest Lesson:** Every level was solved because the application trusted user-controlled input, data, or behavior that should never have been trusted.
 
 ---
 
@@ -37,10 +40,10 @@ trusted something it should not have trusted.
 
 **Work:**
 
-* View Page Source
+* View page source
 
 **What I learned:**
-HTML comments are visible to everyone.
+HTML comments and source code are visible to every user.
 
 ---
 
@@ -50,7 +53,7 @@ HTML comments are visible to everyone.
 
 **Work:**
 
-* View Page Source
+* View page source
 * Open Developer Tools
 
 **What I learned:**
@@ -69,7 +72,7 @@ Client-side restrictions are not security controls.
 * Browse directory listing
 
 **What I learned:**
-Hidden directories can often be enumerated directly.
+Hidden directories can often be discovered through enumeration.
 
 ---
 
@@ -79,11 +82,11 @@ Hidden directories can often be enumerated directly.
 
 **Work:**
 
-* Check `/robots.txt`
-* Visit exposed directory
+* Review `robots.txt`
+* Access exposed directory
 
 **What I learned:**
-robots.txt can reveal sensitive paths.
+`robots.txt` can unintentionally disclose sensitive paths.
 
 ---
 
@@ -94,10 +97,10 @@ robots.txt can reveal sensitive paths.
 **Work:**
 
 * Modify HTTP Referer header
-* Reload request
+* Replay request
 
 **What I learned:**
-HTTP headers are controlled by the client.
+HTTP headers are completely controlled by the client.
 
 ---
 
@@ -108,10 +111,10 @@ HTTP headers are controlled by the client.
 **Work:**
 
 * Inspect cookies
-* Change `loggedin=0` → `loggedin=1`
+* Change `loggedin=0` to `loggedin=1`
 
 **What I learned:**
-Authorization should never depend on client-side values.
+Authorization decisions should never rely on client-side values.
 
 ---
 
@@ -122,11 +125,11 @@ Authorization should never depend on client-side values.
 **Work:**
 
 * Review source code
-* Locate included file
-* Retrieve secret value
+* Identify included file
+* Extract secret value
 
 **What I learned:**
-Source code review often exposes sensitive information.
+Source code often exposes sensitive implementation details.
 
 ---
 
@@ -140,7 +143,7 @@ Source code review often exposes sensitive information.
 * Exploit Local File Inclusion
 
 **What I learned:**
-User-controlled file paths can expose credentials.
+User-controlled file paths can expose credentials and sensitive files.
 
 ---
 
@@ -150,7 +153,7 @@ User-controlled file paths can expose credentials.
 
 **Work:**
 
-* Analyze encoding logic
+* Analyze encoding sequence
 * Reverse transformations
 
 **What I learned:**
@@ -168,7 +171,7 @@ Encoding is not encryption.
 * Exploit command injection
 
 **What I learned:**
-Unsanitized input inside shell commands is dangerous.
+Unsanitized user input inside shell commands can lead to command execution.
 
 ---
 
@@ -179,16 +182,16 @@ Unsanitized input inside shell commands is dangerous.
 **Work:**
 
 * Analyze blacklist restrictions
-* Manipulate command arguments
+* Exploit argument injection
 
 **What I learned:**
-Blacklist filtering is not reliable security.
+Blacklist-based filtering is an unreliable defense mechanism.
 
 ---
 
 ## Level 11 → 12
 
-**Goal:** Enable password display
+**Goal:** Enable password disclosure
 
 **Work:**
 
@@ -197,7 +200,7 @@ Blacklist filtering is not reliable security.
 * Forge modified cookie
 
 **What I learned:**
-Encryption without integrity checks is weak.
+Encryption without integrity validation can be manipulated.
 
 ---
 
@@ -212,13 +215,81 @@ Encryption without integrity checks is weak.
 * Execute uploaded file
 
 **What I learned:**
-Hidden form fields are fully user-controlled.
+Hidden form fields are fully controlled by the user.
 
 ---
 
-## Levels 0–12 Summary
+## Level 13 → 14
 
-**Key Skills Learned:**
+**Goal:** Achieve Remote Code Execution
+
+**Work:**
+
+* Analyze image validation logic
+* Create JPEG-PHP polyglot
+* Bypass image-only upload restriction
+* Modify hidden filename field using Developer Tools
+* Upload PHP web shell
+* Execute system commands
+* Read Natas14 password
+
+**What I learned:**
+Validating file signatures alone does not prevent malicious uploads.
+
+---
+
+## Level 14 → 15
+
+**Goal:** Bypass authentication
+
+**Work:**
+
+* Analyze SQL query construction
+* Identify SQL Injection vulnerability
+* Inject always-true condition
+* Bypass login mechanism
+
+**What I learned:**
+Dynamic SQL queries built from user input are highly dangerous.
+
+---
+
+## Level 15 → 16
+
+**Goal:** Extract Natas16 password
+
+**Work:**
+
+* Confirm Blind SQL Injection
+* Test boolean conditions
+* Enumerate password characters
+* Automate extraction with Python
+* Recover full password
+
+**What I learned:**
+Application responses can leak information even when sensitive data is never displayed.
+
+---
+
+## Level 16 → 17
+
+**Goal:** Extract Natas17 password
+
+**Work:**
+
+* Analyze command execution logic
+* Identify command substitution vulnerability
+* Exploit blind command injection
+* Enumerate password prefixes
+* Automate extraction using Python
+* Recover full password
+
+**What I learned:**
+Blind command injection can reveal secrets through subtle differences in application behavior.
+
+---
+
+## Skills Practiced
 
 * Source Code Review
 * Directory Enumeration
@@ -226,11 +297,47 @@ Hidden form fields are fully user-controlled.
 * HTTP Request Tampering
 * Local File Inclusion (LFI)
 * Encoding Reversal
+* SQL Injection
+* Blind SQL Injection
 * Command Injection
+* Blind Command Injection
 * Argument Injection
 * XOR Analysis
 * Cookie Forgery
 * File Upload Exploitation
+* Remote Code Execution (RCE)
+* Python Automation
+* Password Enumeration
 
-**Biggest Lesson:**
-Every level was solved because the application trusted something it should not have trusted.
+---
+
+## Current Progress
+
+```text
+Natas 0  ✓
+Natas 1  ✓
+Natas 2  ✓
+Natas 3  ✓
+Natas 4  ✓
+Natas 5  ✓
+Natas 6  ✓
+Natas 7  ✓
+Natas 8  ✓
+Natas 9  ✓
+Natas 10 ✓
+Natas 11 ✓
+Natas 12 ✓
+Natas 13 ✓
+Natas 14 ✓
+Natas 15 ✓
+Natas 16 ✓
+Natas 17 Unlocked ✓
+```
+
+## Overall Takeaway
+
+The Natas wargame demonstrates a fundamental principle of web security:
+
+**Every successful exploit originated from misplaced trust in user-controlled input, client-side controls, or unsafe assumptions about application behavior.**
+
+The progression from simple information disclosure to blind exploitation and automated secret extraction highlights how seemingly small security mistakes can escalate into full compromise of an application.
