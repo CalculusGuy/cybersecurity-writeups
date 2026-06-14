@@ -393,4 +393,3 @@ The Natas wargame demonstrates a fundamental principle of web security:
 The progression from simple information disclosure to blind exploitation and automated secret extraction highlights how seemingly small security mistakes can escalate into full compromise of an application.
 
 
-we need to update the git on natas. this is the last commit. update it and give me to push 
