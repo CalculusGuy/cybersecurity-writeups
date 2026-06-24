@@ -1,3 +1,10 @@
+<div align="center">
+  
+  [![TryHackMe](https://img.shields.io/badge/TryHackMe-Top_3%25-8A2BE2?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/nilanjanchowdhury965)
+  [![Rank](https://img.shields.io/badge/Rank-0xB_MASTER-FF6B6B?style=for-the-badge)](https://tryhackme.com/p/nilanjanchowdhury965)
+  [![League](https://img.shields.io/badge/League-DIAMOND-00D4FF?style=for-the-badge)](https://tryhackme.com/p/nilanjanchowdhury965)
+  
+</div>
 # TryHackMe Progress
 
 **Profile:** [nilanjanchowdhury965](https://tryhackme.com/p/nilanjanchowdhury965)
