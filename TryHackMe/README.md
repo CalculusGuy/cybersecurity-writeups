@@ -8,12 +8,13 @@
 
 | Metric | Value |
 |--------|-------|
-| Rank | [0xA][WIZARD] |
-| Global Standing | Top 4% Worldwide |
-| Points | 12,442+ |
-| Rooms Completed | 71+ |
-| Badges Earned | 13 |
-| League | Sapphire League #1 |
+| Rank | **[0xB][MASTER]** 🔥 |
+| Global Standing | **Top 3% Worldwide** 🌍 |
+| League | **DIAMOND LEAGUE** 💎 |
+| Points | 54,091+ |
+| Rooms Completed | **88** |
+| Badges Earned | **14** |
+| Streak Bonus | 365+ Day: 2,492 points |
 
 ---
 
@@ -37,12 +38,18 @@
 
 ---
 
-## Completed Rooms (71)
+## Completed Rooms (88+)
 
+**Latest Rooms:**
+- Vulnversity (file upload bypass → systemctl SUID privesc)
+- *88 total rooms completed*
+
+**Highlights:**
 - Mr. Robot — Rare badge earned
 - SOC Simulator — 36 alerts, 100% True Positive Rate
 - OhSINT — OSINT challenge
 - Advent of Cyber '24 Side Quest — Epic badge earned
+- Advent of Cyber '23 Side Quest — Epic badge earned
 - HTTP Request Smuggling
 - AI Threat Modelling
 - Guided Pentest: Infrastructure
@@ -51,15 +58,23 @@
 - RootMe — CTF privilege escalation
 - Crack The Hash Level 2
 - Hacking Hadoop — Hard difficulty
-- *...and 60+ more*
+- *...and 75+ more*
 
 ---
 
 ## Milestones
 
-- 🏆 Reached [0xA][WIZARD] rank
-- 🥇 Sapphire League #1 — 3,475 points
-- 🌍 Top 4% globally
-- 🔴 3 Epic badges
+- 🏆 Reached **[0xB][MASTER]** rank
+- 💎 **DIAMOND LEAGUE** — elite tier
+- 🌍 **Top 3% globally**
+- 🔴 3 Epic badges (0.3%, 0.6%, 0.9%)
 - 🔵 7 Rare badges
 - 💯 100% True Positive Rate across 36 SOC alerts
+- 📅 365+ Day Streak maintained
+- 🔥 88 rooms completed and counting
+
+---
+
+*Last Updated: June 24, 2026*
+
+*"Blue team guy with red team mindset"*
