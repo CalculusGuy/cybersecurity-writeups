@@ -14,6 +14,7 @@
 | Learning Process | Fundamental | ✅ Completed |
 | Web Requests | Fundamental | ✅ Completed |
 | File Transfers | Medium | ✅ Completed |
+| [Next Module] | — | ⏳ In Progress |
 
 ## Starting Point Machines
 
@@ -22,3 +23,4 @@
 | Meow | Tier 0 | Telnet Misconfiguration | ✅ Pwned |
 | Fawn | Tier 0 | FTP Anonymous Login | ✅ Pwned |
 | Dancing | Tier 0 | SMB Misconfiguration | ✅ Pwned |
+| [Next Machine] | — | — | ⏳ Target |
