@@ -1,10 +1,11 @@
 <div align="center">
   
-  [![TryHackMe](https://img.shields.io/badge/TryHackMe-Top_3%25-8A2BE2?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/nilanjanchowdhury965)
-  [![Rank](https://img.shields.io/badge/Rank-0xB_MASTER-FF6B6B?style=for-the-badge)](https://tryhackme.com/p/nilanjanchowdhury965)
+  [![TryHackMe](https://img.shields.io/badge/TryHackMe-Top_2%25-8A2BE2?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/nilanjanchowdhury965)
+  [![Rank](https://img.shields.io/badge/Rank-0xC_GURU-FF6B6B?style=for-the-badge)](https://tryhackme.com/p/nilanjanchowdhury965)
   [![League](https://img.shields.io/badge/League-DIAMOND-00D4FF?style=for-the-badge)](https://tryhackme.com/p/nilanjanchowdhury965)
   
 </div>
+
 # TryHackMe Progress
 
 **Profile:** [nilanjanchowdhury965](https://tryhackme.com/p/nilanjanchowdhury965)
@@ -15,17 +16,16 @@
 
 | Metric | Value |
 |--------|-------|
-| Rank | **[0xB][MASTER]** 🔥 |
-| Global Standing | **Top 3% Worldwide** 🌍 |
+| Rank | **[0xC][GURU]** 🔥 |
+| Global Standing | **Top 2% Worldwide** 🌍 |
 | League | **DIAMOND LEAGUE** 💎 |
-| Points | 54,091+ |
-| Rooms Completed | **88** |
-| Badges Earned | **14** |
-| Streak Bonus | 365+ Day: 2,492 points |
+| Rooms Completed | **100** |
+| Badges Earned | **15** |
+| Streak | 1 day |
 
 ---
 
-## Badges
+## Badges (15 Total)
 
 | Badge | Rarity | Description |
 |-------|--------|-------------|
@@ -42,46 +42,25 @@
 | ⚪ cat linux.txt | Common 29.8% | Linux competency |
 | ⚪ Webbed | Common 23.9% | Web security fundamentals |
 | ⚪ 3 Day Streak | Common 33.5% | 3 day hacking streak |
-
----
-
-## Completed Rooms (88+)
-
-**Latest Rooms:**
-- Vulnversity (file upload bypass → systemctl SUID privesc)
-- *88 total rooms completed*
-
-**Highlights:**
-- Mr. Robot — Rare badge earned
-- SOC Simulator — 36 alerts, 100% True Positive Rate
-- OhSINT — OSINT challenge
-- Advent of Cyber '24 Side Quest — Epic badge earned
-- Advent of Cyber '23 Side Quest — Epic badge earned
-- HTTP Request Smuggling
-- AI Threat Modelling
-- Guided Pentest: Infrastructure
-- Basic Malware RE
-- Sudo Security Bypass — CVE-2019-14287
-- RootMe — CTF privilege escalation
-- Crack The Hash Level 2
-- Hacking Hadoop — Hard difficulty
-- *...and 75+ more*
+| ⚪ [New Badge] | ⏳ | Earned on the way to 100 |
+| ⚪ [New Badge] | ⏳ | Earned on the way to 100 |
 
 ---
 
 ## Milestones
 
-- 🏆 Reached **[0xB][MASTER]** rank
+- 🏆 Reached **[0xC][GURU]** rank
 - 💎 **DIAMOND LEAGUE** — elite tier
-- 🌍 **Top 3% globally**
+- 🌍 **Top 2% globally**
 - 🔴 3 Epic badges (0.3%, 0.6%, 0.9%)
 - 🔵 7 Rare badges
 - 💯 100% True Positive Rate across 36 SOC alerts
 - 📅 365+ Day Streak maintained
-- 🔥 88 rooms completed and counting
+- 🔥 **100 rooms completed**
+- 🎯 **15 badges earned**
 
 ---
 
-*Last Updated: June 24, 2026*
+*Last Updated: August 29, 2026*
 
-*"Blue team guy with red team mindset"*
+*"A blue team guy with red team mindset"*
