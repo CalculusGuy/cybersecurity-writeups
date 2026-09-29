@@ -20,7 +20,7 @@
 ```yaml
 name:        Nilanjan Chowdhury
 role:        Cybersecurity Student & Independent Security Researcher
-education:   BCA Cybersecurity, RCC Institute of Information Technology, Kolkata (Class of 2029)
+education:   Cybersecurity Student, RCC Institute of Information Technology, Kolkata (Class of 2029)
 focus:       Web App Pentesting · AI Red Teaming · DAST Tooling
 philosophy:  "Build in public. Break things ethically. Publish the writeup."
 currently:   Grinding CTFs, shipping open-source security tools, hunting my first bug bounty
