@@ -140,7 +140,7 @@ philosophy: "Build. Break. Secure. Publish."
 
 **Languages**
 
-`Python` `C` `C++` `Bash` `JavaScript` `SQL`
+`Python` `C` `C++` `Bash` `JavaScript` `SQL` `JAVA` `Shell Scripting`
 
 **Security**
 
