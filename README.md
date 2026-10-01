@@ -20,7 +20,6 @@
 ```yaml
 name: Nilanjan Chowdhury
 role: Cybersecurity Researcher | VAPT Intern @ ISOAH Data Securities
-education: BCA Cybersecurity | RCC Institute of Information Technology
 focus:
   - Offensive Security
   - AI/LLM Security
