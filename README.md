@@ -99,7 +99,7 @@ philosophy: "Build. Break. Secure. Publish."
 
 | Milestone                            | Result                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------- |
-| **TryHackMe**                        | Top 2% Globally · `[0xC][GURU]` · 113+ rooms · 15 badges · 365-day streak |
+| **TryHackMe**                        | Top 2% Globally · `[0xC][GURU]` · 113+ rooms · 16 badges · 365-day streak |
 | **PortSwigger Web Security Academy** | 100% Complete · Apprentice → Expert · Web LLM Attacks 8/8                 |
 | **Gandalf AI Prompt Injection**      | Top 8% Worldwide · 8/8 levels                                             |
 | **ICFRE Government Assessment**      | 224 findings · 50 confirmed SSTI                                          |
@@ -114,7 +114,7 @@ philosophy: "Build. Break. Secure. Publish."
 
 ## Experience
 
-### VAPT & Report Publishing Intern — ISOAH Data Securities Pvt. Ltd.
+### VAPT & Dark Web Monitoring Intern — ISOAH Data Securities Pvt. Ltd.
 
 **Sep 2026 – Present · Kolkata**
 
