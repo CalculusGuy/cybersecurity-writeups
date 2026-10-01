@@ -1,26 +1,27 @@
-## Current Stats
+# 🎯 HackTheBox Progress
 
-| Metric | Value |
-|--------|-------|
-| Username | @NiluHacks4Fun |
-| Level | 9 |
-| Rank | Beginner |
+**Profile:** [NilanjanHacks](https://app.hackthebox.com/profile/overview)
 
-## Completed Modules
+---
 
-| Module | Difficulty | Status |
-|--------|-----------|--------|
-| Intro To Academy | Fundamental | ✅ Completed |
-| Learning Process | Fundamental | ✅ Completed |
-| Web Requests | Fundamental | ✅ Completed |
-| File Transfers | Medium | ✅ Completed |
-| [Next Module] | — | ⏳ In Progress |
+## Machines Pwned
 
-## Starting Point Machines
+| Machine | Tier | Technique |
+|---------|------|-----------|
+| Crocodile | Easy | HTTP POST brute-force (Hydra) |
+| + 12 more machines | Mixed | Various |
 
-| Machine | Tier | Technique | Status |
-|---------|------|-----------|--------|
-| Meow | Tier 0 | Telnet Misconfiguration | ✅ Pwned |
-| Fawn | Tier 0 | FTP Anonymous Login | ✅ Pwned |
-| Dancing | Tier 0 | SMB Misconfiguration | ✅ Pwned |
-| [Next Machine] | — | — | ⏳ Target |
+**Total machines completed:** 12+
+
+---
+
+## Focus Areas
+
+- Linux privilege escalation
+- Active Directory attack paths
+- Web application exploitation
+- Custom exploit modification
+
+---
+
+*Last Updated: October 2026*
