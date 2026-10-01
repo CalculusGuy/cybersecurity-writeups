@@ -8,7 +8,7 @@
 
 | Machine | Tier | Technique |
 |---------|------|-----------|
-| Crocodile | Easy | HTTP POST brute-force (Hydra) |
+| Crocodile | Medium | HTTP POST brute-force (Hydra) |
 | + 12 more machines | Mixed | Various |
 
 **Total machines completed:** 12+
