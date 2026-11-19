@@ -32,13 +32,26 @@ The repository documents practical work across:
 
 ---
 
+## 📝 Medium Articles (HTML Backup)
+
+A permanent backup of my published articles, stored here in case the primary platform goes down. 
+
+- [The 7th Grader Who Said "I Will Be a Hacker"](./medium-articles/The-7th-Grader-Who-Said-I-Will-Be-a-Hacker.html)
+- [Your WAF Scanner Checks a Header. Mine Checks Its Pulse.](./medium-articles/Your-WAF-Scanner-Checks-a-Header-Mine-Checks-Its-Pulse.html)
+- [I Accidentally DDoS'd Google's Gemini API](./medium-articles/I-Accidentally-DDoSed-Googles-Gemini-API.html)
+- [The Day I Conquered HTB TwoMillion](./medium-articles/The-Day-I-Conquered-HTB-TwoMillion.html)
+
+*(Read the full index in the [medium-articles folder](./medium-articles/)).*
+
+---
+
 ## Platforms
 
 | Platform | Focus | Progress |
 |---|---|---|
 | **PortSwigger Web Security Academy** | Web application security | **100% Complete** · Apprentice → Expert |
 | **TryHackMe** | Red Team · SOC · AD · Linux | **Top 2%** · GURU · 113+ rooms |
-| **HackTheBox** | Machines · AD · PrivEsc | **12+ machines** |
+| **HackTheBox** | Machines · AD · PrivEsc | **Active** · Manual Root: TwoMillion |
 | **OverTheWire** | Linux fundamentals | **Bandit 33/33** · Natas in progress |
 | **picoCTF** | CTF challenges | **21+ challenges** |
 
@@ -73,6 +86,7 @@ The repository documents practical work across:
 
 | Machine | Technique |
 |---|---|
+| **TwoMillion** | JS reverse engineering, API exploitation, CVE-2023-0386 (OverlayFS) |
 | **Crocodile** | HTTP POST brute-force with Hydra |
 | **12+ machines** | [View HackTheBox Writeups](HackTheBox/) |
 
@@ -121,6 +135,7 @@ The repository documents practical work across:
 - **PortSwigger Web Security Academy** — 100% complete
 - **Web LLM Attacks** — 8/8 Expert labs
 - **TryHackMe** — Top 2% · GURU · 113+ rooms
+- **HackTheBox** — Manual root on TwoMillion
 - **OverTheWire Bandit** — 33/33 levels
 - **Gandalf** — 7/7 levels
 - **picoCTF** — 21+ challenges
@@ -134,10 +149,10 @@ More detailed security research and technical articles:
 [![Medium](https://img.shields.io/badge/Medium-Articles-000000?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@nilanjan.calculus)
 
 - **BRAMHASTRA:** I Asked 3 LLMs to Leak Their Secrets
-- **Hacked, Audited, Fixed:** 10 Vulnerabilities in One Flask App
-- SQL Injection research
-- CSRF, SSRF and XXE deep dives
-- +13 additional articles
+- **HOLLOW:** Why Your WAF Scanner is Lying to You
+- **TwoMillion:** The Day I Conquered HTB TwoMillion
+- **DDoS:** I Accidentally DDoS'd Google's Gemini API
+- **+16 additional articles** (all backed up in the `medium-articles/` folder)
 
 ---
 
@@ -146,7 +161,7 @@ More detailed security research and technical articles:
 **Nilanjan Chowdhury**
 
 - GitHub — [@CalculusGuy](https://github.com/CalculusGuy)
-- LinkedIn — [Nilanjan Chowdhury](https://linkedin.com/in/mr-nilanjan-chowdhury-a36787359/)
+- LinkedIn — [Nilanjan Chowdhury](https://linkedin.com/in/nilanjan-chowdhury-a36787359/)
 - Medium — [@nilanjan.calculus](https://medium.com/@nilanjan.calculus)
 - Portfolio — [calculusguy.github.io](https://calculusguy.github.io/nilanjanchowdhury.github.io/)
 - TryHackMe — [nilanjanchowdhury965](https://tryhackme.com/p/nilanjanchowdhury965)
