@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>I Accidentally DDoS Google’s Gemini API (And Why Your Retry Logic Will Too)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">I Accidentally DDoS Google’s Gemini API (And Why Your Retry Logic Will Too)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Author : Nilanjan Chowdhury
+</section>
+<section data-field="body" class="e-content">
+<section name="44f6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9899" id="9899" class="graf graf--h3 graf--leading graf--title">I Accidentally DDoS Google’s Gemini API (And Why Your Retry Logic Will Too)</h3><figure name="3027" id="3027" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="0*qCJ_UhhYldzunVZS" data-width="6000" data-height="4000" data-unsplash-photo-id="YqhbpcWGQNg" src="https://cdn-images-1.medium.com/max/800/0*qCJ_UhhYldzunVZS"></figure><p name="2d2b" id="2d2b" class="graf graf--p graf-after--figure">Author :<a href="https://www.linkedin.com/in/nilanjan-chowdhury-a36787359/" data-href="https://www.linkedin.com/in/nilanjan-chowdhury-a36787359/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"> Nilanjan Chowdhury</a></p><p name="4e39" id="4e39" class="graf graf--p graf-after--p">I just finished building the core engine for my new AI red-teaming tool. It has 34 payloads, a 5-model fallback chain, and a negation-aware detector.</p><p name="94a9" id="94a9" class="graf graf--p graf-after--p">I fired the scan against Gemini 3.8 Flash to see how many vulnerabilities I could find.</p><p name="80b9" id="80b9" class="graf graf--p graf-after--p">Then the terminal hung.</p><p name="1c36" id="1c36" class="graf graf--p graf-after--p">And hung.</p><p name="8338" id="8338" class="graf graf--p graf-after--p">And hung.</p><p name="f242" id="f242" class="graf graf--p graf-after--p">I waited 15 minutes. The cursor just blinked. No output. No crash.</p><p name="01fe" id="01fe" class="graf graf--p graf-after--p">I didn’t realize it at the time, but I had just written a script aggressive enough to effectively DDoS Google’s free-tier API.</p><p name="ac08" id="ac08" class="graf graf--p graf-after--p">Here is what went wrong, and how you can avoid making the same mistake.</p><h3 name="cb39" id="cb39" class="graf graf--h3 graf-after--p">The Aggressive Retry Loop</h3><p name="12f2" id="12f2" class="graf graf--p graf-after--h3">Here is what my original adapter logic looked like in my head:</p><ol class="postList"><li name="3d07" id="3d07" class="graf graf--li graf-after--p">Send prompt to Model A</li><li name="ebb4" id="ebb4" class="graf graf--li graf-after--li">If Model A fails (rate limit), try Model A again.</li><li name="f69f" id="f69f" class="graf graf--li graf-after--li">If Model A fails twice, try Model B.</li><li name="cdb9" id="cdb9" class="graf graf--li graf-after--li">Repeat for all 5 models in the fallback chain.</li></ol><p name="4ffc" id="4ffc" class="graf graf--p graf-after--li">It sounds robust. But when you multiply that by 34 payloads firing in rapid succession, the math gets ugly fast.</p><p name="faaa" id="faaa" class="graf graf--p graf-after--p">When Google’s API hit me with a <code class="markup--code markup--p-code">429 Too Many Requests</code> (because I was firing too fast), my script didn&#39;t back off. It just kept hammering the server, trying to force its way through.</p><p name="42d3" id="42d3" class="graf graf--p graf-after--p">I was sending hundreds of requests per minute. Google’s servers started dropping my connections. My script sat there, waiting 20 seconds for a timeout, moving to the next model, waiting 20 seconds again, and eventually failing — 34 times in a row.</p><h3 name="664d" id="664d" class="graf graf--h3 graf-after--p">The Fix: Respect the Infrastructure</h3><p name="37ee" id="37ee" class="graf graf--p graf-after--h3">I had to rewrite the adapter to respect the API.</p><p name="e915" id="e915" class="graf graf--p graf-after--p">Instead of infinite retries, I implemented an exponential backoff mechanism and a strict timeout. I also limited the fallback chain for testing so it wouldn’t spiral out of control if the API was down.</p><p name="fe2a" id="fe2a" class="graf graf--p graf-after--p">Here is the logic that actually works:</p><ol class="postList"><li name="7e55" id="7e55" class="graf graf--li graf-after--p">Send to Model A.</li><li name="2162" id="2162" class="graf graf--li graf-after--li">If it fails with 429 (Rate Limit) or 503 (Unavailable): Wait 2 seconds.</li><li name="7952" id="7952" class="graf graf--li graf-after--li">Try Model A again.</li><li name="10b4" id="10b4" class="graf graf--li graf-after--li">If it fails again: Move to Model B, but wait 4 seconds before trying.</li><li name="1ce1" id="1ce1" class="graf graf--li graf-after--li">If all models fail: Break the loop and return <code class="markup--code markup--li-code">ALL_MODELS_FAILED: HTTP 429</code> immediately.</li></ol><p name="13e5" id="13e5" class="graf graf--p graf-after--li">By failing fast and backing off, the tool went from hanging for 15 minutes to finishing the 34-payload scan in under 2 minutes.</p><h3 name="515b" id="515b" class="graf graf--h3 graf-after--p">The Lesson</h3><p name="30d7" id="30d7" class="graf graf--p graf-after--h3">If you are building AI security tools, you have to remember that you are operating inside someone else’s infrastructure. Rate limits are not a suggestion — they are a hard wall.</p><p name="cb40" id="cb40" class="graf graf--p graf-after--p">When your script hits a <code class="markup--code markup--p-code">429</code>, the worst thing you can do is immediately retry. That’s how you get IP-banned, and that’s how you end up DDoS&#39;ing a multi-billion dollar tech company by accident.</p><p name="bc0c" id="bc0c" class="graf graf--p graf-after--p">If you’re building a red-teaming tool, test your fallback chains. Test your rate limits. And for the love of everything, add exponential backoff.</p><p name="bb94" id="bb94" class="graf graf--p graf-after--p"><em class="markup--em markup--p-em">(BRAMHASTRA v2 is now live and working perfectly, and I promise the current version is much kinder to Google’s servers).</em></p><h3 name="092e" id="092e" class="graf graf--h3 graf-after--p">If you want to follow the journey:</h3><p name="6655" id="6655" class="graf graf--p graf-after--h3">GitHub: <a href="https://github.com/CalculusGuy" data-href="https://github.com/CalculusGuy" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">github.com/CalculusGuy</a><br>Medium: <a href="https://medium.com/@nilanjan.calculus" data-href="https://medium.com/@nilanjan.calculus" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">medium.com/@nilanjan.calculus</a><br>LinkedIn: <a href="https://www.linkedin.com/in/nilanjan-chowdhury-a36787359/" data-href="https://www.linkedin.com/in/nilanjan-chowdhury-a36787359/" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">linkedin.com/in/nilanjan-chowdhury-a36787359</a><br>My website: <a href="https://calculusguy.github.io/nilanjanchowdhury.github.io/" data-href="https://calculusguy.github.io/nilanjanchowdhury.github.io/" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">https://calculusguy.github.io/nilanjanchowdhury.github.io/</a></p><p name="63b2" id="63b2" class="graf graf--p graf-after--p graf--trailing">#infosec #ai-security #cybersecurity #DDoS #ethicalhacking</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/cybersecurity" class="p-tag">Cybersecurity</a>, <a href="https://medium.com/tag/ddos-attack" class="p-tag">Ddos Attack</a>, <a href="https://medium.com/tag/ethical-hacking" class="p-tag">Ethical Hacking</a>, <a href="https://medium.com/tag/ai-security" class="p-tag">Ai Security</a>, <a href="https://medium.com/tag/offensive-security" class="p-tag">Offensive Security</a></p><p>By <a href="https://medium.com/@nilanjan.calculus" class="p-author h-card">Nilanjan Chowdhury</a> on <a href="https://medium.com/p/8301e51a0656"><time class="dt-published" datetime="2026-10-29T16:27:25.316Z">October 29, 2026</time></a>.</p><p><a href="https://medium.com/@nilanjan.calculus/i-accidentally-ddos-googles-gemini-api-and-why-your-retry-logic-will-too-8301e51a0656" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 19, 2026.</p></footer></article></body></html>
